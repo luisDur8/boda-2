@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lili & Natanael</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="preload" href="css/normalize.css" as="style">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- CSS de Leaflet -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin=""/>
+</head>
+
+<body class="roboto-regular">
+  <header>
+    <div class="centrar">
+      <div class="logo">
+        <img src="assets/logo-rojo-boda.svg" alt="logo-boda" width="80px">
+      </div>
+    </div>
+  </header>
+
+  <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+  <nav id="nav" class="nav roboto-bold">
+    <button id="cerrar" class="cerrar-menu"><i class="bi bi-x-lg"></i></button>
+    <div class="enlaces">
+      <a href="#historia">NUESTRA HISTORIA</a>
+      <a href="#cuenta">CUENTA REGRESIVA</a>
+      <a href="#fotos">FOTOS</a>
+      <a href="#adicionales">ADICIONALES</a>
+      <a href="#asistencia">CONFIRMAR ASISTENCIA</a>
+    </div>
+  </nav>
+
+  <div class="contenedor-foto-bg">
+    <div class="novios-banner"></div>
+    <div class="texto-encima casar bodoni-moda"> ¡NOS VAMOS A CASAR! </div>
+    <div class="texto-encima great-vibes-regular nombres">
+      <p>Lili</p>
+      <p class="amperson">&</p>
+      <p>Natanael</p>
+    </div>
+    <div class="texto-encima fecha bodoni-moda"> ─ SÁBADO, 28 DIC 2024 ─ </div>
+  </div>
+
+  <div class="audio-container">
+    <audio id="audio-player">
+      <source src="assets/quedate_que_las_noches_sin_ti_duelen.mp3" type="audio/mpeg">
+      Tu navegador no soporta la reproducción de audio.
+    </audio>
+    <div class="custom-controls">
+      <button id="play-button">▶</button>
+      <button class="pausa" id="pause-button">||</button>
+      <!-- Barra de progreso personalizada -->
+      <div class="progress-container">
+        <div id="progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Historia -->
+  <section id="historia" class="mb">
+    <h2 class="text-center bodoni-moda">Nuestra Historia</h2>
+    <div class="contenedor-2divs his rem120 bold">
+      <div>    
+        <p>
+          En un cálido día de agosto, nuestros destinos se cruzaron en el trabajo. Yo había llegado para cubrir una vacante temporal, sin imaginar que ese sería el comienzo de nuestra historia. 
+        </p>
+        <p>
+          Al entrar, él, quien ahora es mi  prometido, se presentó con una sonrisa y se quedó a mi lado con la excusa de llenar su historial clínico. Desde ese instante, su persistencia y cariño conquistaron mi corazón.
+        </p>  
+        <p>
+          Él asegura que desde el momento en que me vio entrar, supo que se casaría conmigo. Aunque cambié de empresa, él se quedó en mi vida, convirtiéndose en mi compañero eterno.
+        </p> 
+      </div>
+      
+      <div class="div-img">
+        <img src="assets/historia.jpeg" alt="imagen de corazones">
+      </div>
+    </div>
+  </section>
+
+  <!-- Novios -->
+  <section class="bg-rojo mb novios">
+    <h2 class="text-center bodoni-moda">Los Novios</h2>
+    <div class="contenedor-2divs rojo rem120 bold verde">
+      <div>
+        <p class="text-center dashed frase1">
+          <i>«Sanaste cosas en mí y aprendí el verdadero significado del amor.»</i>
+        </p>
+      </div>
+
+      <div class="div-img">
+        <img src="assets/novia.jpg" alt="imagen del novia">
+        <p>Lili Aboytes</p>
+      </div>
+      
+      <div class="div-img">
+        <img src="assets/novio.jpg" alt="imagen de la novio">
+        <p>Natanael Barrueta</p>
+      </div>
+      <div>
+        <p class="text-center dashed frase2">
+          <i>«Te vi, sonreíste y le robaste a mi alma la sencillez de amarte toda la vida.»</i>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Cuenta Regresiva -->
+  <section id="cuenta">
+    <p class="text-center bold">¡Ya falta poco!</p>
+    <p class="text-center bold">Nuestra boda es en:</p>
+    <h2 class="text-center bodoni-moda">Cuenta Regresiva</h2>
+    <div class="countdown-container rem120">
+      <div>
+        <div class="time" id="days">00</div>
+        <div class="label">Días</div>
+      </div>
+      <div>
+        <div class="time" id="hours">00</div>
+        <div class="label">Horas</div>
+      </div>
+      <div>
+        <div class="time" id="minutes">00</div>
+        <div class="label">Minutos</div>
+      </div>
+      <div>
+        <div class="time" id="seconds">00</div>
+        <div class="label">Segundos</div>
+      </div>
+    </div> 
+  </section>
+
+  <!-- Padres -->
+  <section class="bg-rojo padres">
+    <h2 class="text-center bodoni-moda">Nuestros Padres</h2>
+    <div class="contenedor-2divs parents rem120 bold">
+
+      <div class="div-img text-center">
+        <p class="border-b">De la Novia</p>
+        <p class="x-padre menos-mb">Hugo Aboytes</p>
+        <p class="x-padre">Elia Morales</p>
+      </div>
+      
+      <div class="div-img text-center">
+        <p class="border-b">Del Novio</p>
+        <p class="x-padre menos-mb">Bernabé Barrueta</p>
+        <p class="x-padre">Maria Brena</p>
+      </div>
+
+    </div>
+  </section>  
+
+  <!-- Fotos -->
+  <section id="fotos" class="contenedor-flex rem120">
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="carousel-slide">
+          <img src="assets/galeria/1.jpg" alt="imagen 1">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/galeria/2.jpg" alt="imagen 2">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/galeria/3.jpg" alt="imagen 3">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/galeria/4.jpg" alt="imagen 4">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/galeria/5.jpg" alt="imagen 5">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/galeria/6.jpg" alt="imagen 6">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/galeria/7.jpg" alt="imagen 7">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/galeria/8.jpg" alt="imagen 8">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/galeria/9.jpg" alt="imagen 9">
+        </div>
+      </div>
+      <button class="prev">❮</button>
+      <button class="next">❯</button>
+    </div> 
+    <p class="text-center block">Escoge a una persona que te mire como si fueras magia.</p>
+  </section>
+
+  <!-- Vestimenta -->
+  <section id="adicionales" class="vestimenta pb-10">
+    <h2 class="text-center bodoni-moda">Código de Vestimenta</h2>
+    <div class="rem120 contenedor-flex">
+      <div>
+        <p class="border-r">
+          <img src="assets/vestimenta/1.svg" alt="vestido formal">
+        </p>
+        <p>Formal</p>
+        <p class="gray">Vestido</p>
+      </div>
+      <div>
+        <p class="border-r">
+          <img src="assets/vestimenta/2.svg" alt="traje formal">
+        </p>
+        <p>Formal</p>
+        <p class="gray">Traje</p>
+      </div>
+      <div>
+        <p>
+          <img src="assets/vestimenta/3.svg" alt="ropa formal de niños">
+        </p>
+        <p>Formal</p>
+        <p class="gray">Vestido/Traje</p>
+      </div>
+    </div>
+
+    <div class="vestimenta-sugerencias">
+      <div class="sugerencias">
+        <img src="assets/vestimenta/cuidado.svg" alt="cuidado de niños">
+        <p>
+          Queremos que todos, grandes y pequeños, disfruten de nuestra boda. Les pedimos que supervisen a sus hijos para que todos podamos pasar un buen rato, ya que no contamos con personal para cuidarlos.
+        </p>
+      </div>
+      <div class="sugerencias">
+        <img src="assets/vestimenta/frio.svg" alt="clima frío">
+        <p>
+          Debido a la temporada esperamos clima frío, te sugerimos traer un abrigo.
+        </p>
+      </div>
+    </div>    
+  </section> 
+
+  <!-- Mapa -->
+  <section class="rem120 map">
+    <h2 class="text-center">Ubicación</h2>
+    <div class="enlace">
+      <a href="https://www.google.com.mx/maps/place/Ex+Hacienda+%22El+Cerrito%22/@20.5512099,-100.4483023,17z/data=!3m1!4b1!4m6!3m5!1s0x85d35aeb8f677817:0xc2dfb3cab425287a!8m2!3d20.5512049!4d-100.4457274!16s%2Fg%2F1ttph7c3?entry=ttu&g_ep=EgoyMDI0MTAwOC4wIKXMDSoASAFQAw%3D%3D">
+        Maps
+      </a>
+    </div>
+    <img src="assets/exhaciendaelcerrito.jpg" alt="lugar">
+    <p class="text-center">
+      <span>Ex Hacienda El Cerrito</span>
+      Calle Rivera Del Río Sn, 76900 Corregidora, Querétaro</p>
+
+    <!-- Div donde se colocará el mapa -->
+    <div id="map"></div>
+
+    <!-- Incluir la biblioteca de Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin=""></script>
+  </section>
+
+  <!-- Itinerario -->
+  <section class="itinerario pb-7">
+    <h2 class="text-center bodoni-moda">Itinerario</h2>
+
+    <div class="sub-itinerario">
+      <div class="itinerario-hora">
+        <p>17:30 horas</p>
+      </div>
+      <div class="itinerario-palabra">
+        <p class="border-bo">Recepción Civil</p>
+        <p class="note">Nota: La asistencia a la recepción civil está limitada a familiares y cuenta con un máximo de 30 lugares.</p>
+      </div>
+      <div class="itinerario-img">
+        <img src="assets/itinerario/recepcion-civil.svg" alt="icono">
+      </div>
+    </div>
+    <div class="sub-itinerario">
+      <div class="itinerario-hora">
+        <p>18:00 horas</p>
+      </div>
+      <div class="itinerario-palabra">
+        <p class="border-bo">Ceremonia Civil</p>
+      </div>
+      <div class="itinerario-img">
+        <img src="assets/itinerario/ceremonia-civil.svg" alt="icono">
+      </div>
+    </div> 
+    <div class="sub-itinerario">
+      <div class="itinerario-hora">
+        <p>18:30 horas</p>
+      </div>
+      <div class="itinerario-palabra">
+        <p class="border-bo">Recepción de la Fiesta</p>
+      </div>
+      <div class="itinerario-img">
+        <img src="assets/itinerario/recepcion-fiesta.svg" alt="icono">
+      </div>
+    </div>
+    <div class="sub-itinerario">
+      <div class="itinerario-hora">
+        <p>19:00 horas</p>
+      </div>
+      <div class="itinerario-palabra">
+        <p class="border-bo">Cena</p>
+      </div>
+      <div class="itinerario-img">
+        <img src="assets/itinerario/cena.svg" alt="icono">
+      </div>
+    </div>         
+  </section>  
+
+  <!-- Hospedaje -->
+  <section class="hospedaje">
+    <h2 class="text-center bodoni-moda">Hospedaje</h2>
+    <p class="hospedaje-p rem120 justificado mt-0">
+      Para la comodidad de nuestros invitados contamos con convenio en los siguientes hoteles, busca el de tu preferencia y menciona el código: <b>LILNAT1224</b> para que apliquen el descuento en tu estadía. 
+    </p>
+
+    <!-- Flamingo -->
+    <div class="rem120 div-interno bold mb bt">
+      <div class="text">    
+        <p class="flamingo mt-0">
+          <b>Flamingo Inn</b>                           
+        </p>
+        <p class="font-zise-12">
+          Gran hotel Querétaro
+        </p>
+        <p>
+          Av Constituyentes 138, Centro, 76000 Santiago de Querétaro, Qro. Tel: 442 101 9696.
+        </p>
+        <a href="https://www.google.com/maps?ll=20.58185,-100.399337&z=14&t=m&hl=es-ES&gl=US&mapclient=embed&cid=817744263804655924" target="_blank" rel="noopener noreferrer">Maps
+        </a>
+        <div class="note">
+          <img src="assets/apertura.svg" alt="¡" width="55px">
+          <p>Nosotros te recomendamos el Flamingo inn debido a la cercanía.</p>
+          <img src="assets/cierre.svg" alt="!" width="55px">
+        </div>
+      </div>
+      
+      <div class="div-img">
+        <img src="assets/habitaciones.png" alt="habitaciones">
+      </div>
+    </div>
+
+    <!-- Hidalgo -->
+    <div class="rem120 div-interno bold bt">
+      <div class="text">    
+        <p class="hidalgo mt-0">
+          <b>Hotel Hidalgo</b>                           
+        </p>
+        <p class="font-zise-12">
+          HM madero hotel
+        </p>
+        <p>
+          Calle Francisco I. Madero 11, Centro, 76000 Santiago de Querétaro, Qro. Tel: 442 212 0081.
+        </p>
+        <a href="https://www.google.com.mx/maps/place/Hotel+Hidalgo/@20.5920207,-100.3929733,19.54z/data=!3m1!5s0x85d35b2a5782779b:0xb7eaa214b0c716b7!4m18!1m8!3m7!1s0x85d35b2a579db4cd:0xfae07a51558802cb!2sC.+Francisco+I.+Madero+11,+Centro,+76000+Santiago+de+Quer%C3%A9taro,+Qro.!3b1!8m2!3d20.5921185!4d-100.3925615!16s%2Fg%2F11bw4zntk3!3m8!1s0x8694ae5608f6c4d7:0x965c7dfa33243b2f!5m2!4m1!1i2!8m2!3d20.5921185!4d-100.3925615!16s%2Fg%2F1v4ptf58?entry=ttu&g_ep=EgoyMDI0MTAwNy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Maps
+        </a>
+      </div>
+      
+      <div class="div-img">
+        <img src="assets/habitaciones2.png" alt="habitaciones">
+      </div>
+    </div>
+  </section> 
+  
+  <!-- Mesa de Regalos -->
+  <section class="mesa-regalos">
+    <h2 class="text-center bodoni-moda">Mesa de Regalos</h2>
+    <div class="contenedor-2divs">
+      <div class="mesa">
+        <p>Liverpool</p>
+        <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51506365" target="_blank">
+          <img src="assets/liverpool.png" alt="liverpool">
+        </a>
+      </div>
+
+      <div class="mesa">
+        <p>Amazon</p>
+        <a href="https://www.amazon.com.mx/wedding/share/Bodaliliynata2024" target="_blank">
+          <img src="assets/amazon.png" alt="amazon">
+        </a>
+      </div>
+    </div>
+
+    <!-- Cuenta -->
+    <div class="cuenta rem120">
+      <p class="cuenta-titulo">Cuenta Bancaria</p>
+      <p class="text-center">En lugar de regalos, tu aporte nos ayudara a empezar nuestro camino juntos.</p>
+      <div class="uls">
+        <ul>
+          <li><b>Nombre</b>: Lili Elaine Aboytes</li>
+          <li><b>Banco</b>: Santander</li>
+          <li><b>Número de cuenta</b>: 56771035366</li>
+          <li><b>Cuenta clave</b>: 014225567710353665</li>
+        </ul>
+      </div>
+
+
+    </div>
+  </section>
+ 
+  <!-- Asistencia -->
+  <section id="asistencia" class="asistencia">
+    <h2 class="text-center bodoni-moda">Confirma tu Asistencia</h2>
+    <p class="text-center px20">Queremos que disfrutes de esta celebración con nosotros por favor confirma tu asistencia antes del <b>15 de octubre</b>.</p>
+    <div class="contenedor-2divs">
+      <div class="mesa wa">
+        <p>4425831627</p>
+        <a href="https://wa.me/4425831627" target="_blank">
+          <img src="assets/whatsapp.svg" alt="whatsapp">
+        </a>
+      </div>
+
+      <div class="mesa qr">
+        <p>Escanea</p>
+        <img src="assets/qr.png" alt="qr" width="266px">
+      </div>
+    </div>
+
+  </section> 
+  
+  <!-- Llegaste -->
+  <section class="llegaste pb-5">
+    <h2 class="text-center bodoni-moda">Llegaste hasta aquí</h2>
+    <p class="text-center">Te contamos por que elegimos esta fecha</p>
+    <div class="rem120">
+      <p class="text-center homenaje">No es una broma del día de los inocentes, esta fecha es un homenaje para el Sr. Natanael Barrueta Perez nacido el 28/12/1921, abuelo del novio a quien le agradece los sabios consejos de vida y las enseñanzas de un hombre honesto, honrado y caballeroso.</p>
+    </div>
+  </section>
+
+  <!-- Crédito -->    
+  <section class="section-credito">
+    <p class="contenedor text-center">
+      Explora Oportunidades. <a href="https://www.facebook.com/desarrollador.web.luis.loher/" target="_blank" rel="noopener noreferrer">Desarrollador Web - Luis LoHer</a> 
+    </p>     
+  </section>
+
+  <script src="script.js"></script> 
+</body>
+</html>
